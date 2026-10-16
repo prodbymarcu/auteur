@@ -42,16 +42,24 @@ the critique) as the shareable artifact.
 ## Status: WIP
 - [x] Rules verified live (10/15)
 - [x] Concept + lanes locked
-- [ ] Repo github.com/prodbymarcu/auteur created with license + README
-- [ ] ComfyUI installed on Aqua (Arch, post-migration, old Win path dead)
-- [ ] SDXL model files located (/mnt/cold?) or re-downloaded
+- [x] Repo github.com/prodbymarcu/auteur created with license + README (main @ 18456a8)
+- [x] Core code v0 pushed: director loop, comfy_client (Comfy API), pluggable VLM
+      critic, prompts, timeline HTML export, CLI, sdxl workflow json. All py_compile OK.
+- [~] ComfyUI installing on Aqua (tmux session `auteur`, log ~/auteur-install.log):
+      torch + requirements in progress, SDXL base + VAE downloading after
+- [ ] SDXL checkpoint download finished + Comfy boots on :8188
 - [ ] Director loop end-to-end on a single brief (render + critique + re-roll)
-- [ ] Web UI + timeline export
-- [ ] Demo video (≤2 min) + social post
+- [ ] Decide critic model: qwen3.8-27b-vl via llama-swap (needs VRAM plan vs Strata
+      resident 23.8GB) or small VL GGUF co-resident; two-GPU split once 2nd 3090 lands
+- [ ] Web UI + timeline export polish
+- [ ] Demo video (<=2 min) + social post #OpenSourceHiggsfield
 - [ ] Typeform submitted BEFORE Oct 30 9am PT
 
 ## Log
-- 10/15 (evening): competition confirmed, concept locked, repo + install next.
-  Aqua 3090 holding Strata resident 23.8GB idle; ComfyUI not installed yet.
+- 10/15 (evening): competition confirmed, concept locked (Auteur: autonomous art
+  director, self-critique loop, open weights only). Repo created + v0 code pushed.
+  /mnt/cold is EMPTY skeletons, no old SDXL weights, so base checkpoint re-downloads
+  from HF. Aqua 3090 = Strata resident 23.8GB idle; Comfy install running in tmux.
+  Melbourne 3090 pickup tonight ~8pm (Jack, $980 XLR8).
 
-next_action: create repo skeleton, then ComfyUI install on Aqua + model recon.
+next_action: wait for install, smoke-test Comfy on :8188, then first end-to-end run.

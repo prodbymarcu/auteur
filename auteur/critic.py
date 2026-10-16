@@ -7,21 +7,24 @@ import urllib.request
 
 
 class VLMClient:
-    def __init__(self, url, model, api_key=None, timeout=240):
+    def __init__(self, url, model, api_key=None, timeout=240, thinking=False):
         self.url = url.rstrip("/")
         self.model = model
         self.api_key = api_key
         self.timeout = timeout
+        self.thinking = thinking
 
     def chat(self, messages):
+        endpoint = self.url if self.url.endswith("/chat/completions") else self.url + "/chat/completions"
         payload = {
             "model": self.model,
             "messages": messages,
             "temperature": 0.4,
-            "max_tokens": 1024,
+            "max_tokens": 2048,
+            "chat_template_kwargs": {"enable_thinking": self.thinking},
         }
         req = urllib.request.Request(
-            self.url,
+            endpoint,
             data=json.dumps(payload).encode(),
             headers={
                 "Content-Type": "application/json",
