@@ -84,3 +84,16 @@ next_action: harshen critic/bar for visible multi-round iteration, two-GPU split
   GOAL.md (first 3s = product, loop is the hook, artifact-moment posts, no AI tells).
 
 next_action: Juggernaut G1 photoreal gate (vs base side-by-side), then H3 i2v G3 gate.
+
+- 10/16 (~7:15am): G3 BREAKTHROUGH. i2v recipe cracked, blind gate scores 2 -> 4 -> 9/10:
+  (a) CLIPLoader type MUST be 'minimax' not 'hidream';
+  (b) official sampler chain: RandomNoise + BasicGuider (NO negative prompt, no CFG) +
+      KSamplerSelect res_multistep + BasicScheduler simple (8 steps) + turbo 8-step LoRA
+      via LoraLoaderModelOnly, latent from MiniMaxH3ImageToVideo output slot 1;
+  (c) compose the STILL for the chain: bokeh neon (no legible text stress), no humans,
+      no vehicles in frame, ambient-motion-only prompts (rain, steam, shimmer, flicker).
+  Take 3 (still v2 seed 410022 + ambient prompt, noise 777, 8 steps): geometry locked,
+  zero banding, 9/10 photoreal, passes as real footage. Sole flaw: rain subtle in
+  still-frame sampling. Take 4 queued: HEAVY visible rain streaks + splash ripples,
+  noise 31337. Next after take 4: 50-step no-LoRA full-quality render (the "best
+  possible" tier, ~65 min/clip). Artifacts: /tmp/auteur_h3_i2v_take3.mp4 (with audio).
