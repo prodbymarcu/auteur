@@ -97,3 +97,11 @@ next_action: Juggernaut G1 photoreal gate (vs base side-by-side), then H3 i2v G3
   still-frame sampling. Take 4 queued: HEAVY visible rain streaks + splash ripples,
   noise 31337. Next after take 4: 50-step no-LoRA full-quality render (the "best
   possible" tier, ~65 min/clip). Artifacts: /tmp/auteur_h3_i2v_take3.mp4 (with audio).
+
+- 10/16 (~8am): res escalation. Take 4 (heavy-rain prompt, noise 31337) rendered as
+  fallback. Hi-res still: Juggernaut lanczos-upscale to 1920x1088 + img2img denoise
+  0.42 (auteur_firstframe_hires.png). Take 5 at 1920x1088 OOM'd on the 3090 (CFG
+  path needs 2 fwd passes/step). Take 5b QUEUED and SAMPLING at 1664x960, 50 steps,
+  no LoRA, CFGGuider cfg 2.0, noise 550001 (pid in /tmp/h3_take5_pid.txt, prompt
+  2c96164f). ~2.5-3h ETA. Watcher proc_d1f071dd66e0 notifies. If 5b OOMs mid-run,
+  next tier is 1536x880. G1-G3 recipes all pinned above; gates remain the bar.
