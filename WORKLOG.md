@@ -122,3 +122,15 @@ next_action: Juggernaut G1 photoreal gate (vs base side-by-side), then H3 i2v G3
   stopped, 1.2GB baseline, take 6 sampling at 21.6GB/100%. Watcher
   proc_28a06f909b10. TRAP: pkill -f strata-vision over ssh matches its own ssh
   session cmdline and kills the connection - use systemctl stop only.
+
+- 10/16 (~9:50pm): AQUA WEDGED HARD during take-7 preview (8-step turbo at 1664x960).
+  Symptom: ICMP + TCP ports answer, ssh dies at banner exchange, Comfy HTTP returns
+  empty -> classic host-RAM/swap death spiral (H3 VAE decode of 124 frames at
+  1664x960 spills host RAM; strata services had ALSO crept back onto the box mid-day
+  per earlier nvidia-smi sightings). Take 6 artifacts SAFE on Mac (/tmp +
+  runs). Take 7 preview LOST (cheap, 8-step). Recovery: physical reset needed OR
+  wait for kernel OOM killer. After reboot: restore llama-swap + strata, relaunch
+  Comfy tmux, re-queue preview. MITIGATIONS to pin after recovery: (a) never run
+  VL critic or any second tenant during H3 decode, (b) consider earlyoom or
+  Comfy --reserve-vram, (c) verify what auto-restarts strata (suspect 10:30 goal
+  cron following stale worklog state, or entangled unit deps).
