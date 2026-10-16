@@ -105,3 +105,20 @@ next_action: Juggernaut G1 photoreal gate (vs base side-by-side), then H3 i2v G3
   no LoRA, CFGGuider cfg 2.0, noise 550001 (pid in /tmp/h3_take5_pid.txt, prompt
   2c96164f). ~2.5-3h ETA. Watcher proc_d1f071dd66e0 notifies. If 5b OOMs mid-run,
   next tier is 1536x880. G1-G3 recipes all pinned above; gates remain the bar.
+
+- 10/16 (~4:30pm): MARCU VERDICT on take 4: "fake as fuck, minecraft rain physics" -
+  heavy explicit rain streaks render as particle sprites. Take 3's subtle
+  ambient (approved) is the correct look; real night rain reads as mist/beads/
+  drips/puddle rings, NOT streaks. Take 5b (50-step, heavy-rain prompt) KILLED
+  mid-run (wrong prompt baked in, ~2h sunk, right call). Take 6 queued with
+  drizzle-realism prompt + "uniform rain streaks, particle rain" in the negative,
+  same max tier (1664x960, 50 steps, CFG 2.0, no LoRA, noise 550001, pid in
+  /tmp/h3_take6_pid.txt, prompt b9db4648). OOM debugging along the way: 1920x1088
+  genuinely OOMs; 1664x960 FITS but only with the card CLEAR - strata + a new
+  strata-vision sidecar + the VL critic server had crept back onto the card
+  (something auto-restarts strata - suspect the 10:30 goal cron restoring per
+  worklog notes, or entangled unit deps; VERIFY before next long render and
+  clear explicitly). Card cleared: vl killed, llama-swap+strata+strata-vision
+  stopped, 1.2GB baseline, take 6 sampling at 21.6GB/100%. Watcher
+  proc_28a06f909b10. TRAP: pkill -f strata-vision over ssh matches its own ssh
+  session cmdline and kills the connection - use systemctl stop only.
