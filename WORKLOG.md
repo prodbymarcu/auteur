@@ -134,3 +134,16 @@ next_action: Juggernaut G1 photoreal gate (vs base side-by-side), then H3 i2v G3
   VL critic or any second tenant during H3 decode, (b) consider earlyoom or
   Comfy --reserve-vram, (c) verify what auto-restarts strata (suspect 10:30 goal
   cron following stale worklog state, or entangled unit deps).
+
+- 10/17 (~10:10am): adopted earshot (Leonxlnx/earshot, "ears for agents", CPU-only) as
+  the AUDIO half of the quality gates. Installed ~/Developer/earshot (brew py3.14
+  venv, CPU torch, doctor clean, CLAP+AST models cached). Wired as MCP into BOTH
+  profiles (bender: patch; alfred: `hermes config set mcp_servers.earshot.*`).
+  PROOF ON OUR CLIP (take6): (1) realness on H3's generated rain audio: p_real 0.91
+  "real or pro-produced" -> H3 audio passes an independent G3-audio gate;
+  (2) measure: -30.7 LUFS, peak -17.5, no clipping -> master needs +16.6dB to -14
+  LUFS web (fix in the edit, not the render); (3) critique vs bundled pro launch
+  films: score 0.621 "needs work" with concrete demo-edit fixes: music bed across
+  the whole film (refs 67-100% windows), accent hits on key moments (0/s vs refs
+  0.10-1.66/s), louder master. earshot = pre-submission scorecard for the demo
+  video (G4 gate); its skills/real-sound = the demo soundtrack pipeline.
